@@ -27,9 +27,9 @@ UC03_answer()
 		EXTRARES, 
 		LAST);
 	
-	lr_think_time(2);
-	
 	lr_end_transaction("UC03_T01_redirect", LR_AUTO);
+	
+	lr_think_time({ThinkTime});
 
 	while (i < atoi(lr_eval_string("{messageOrThreadIdCount_count}"))) {
 		
@@ -53,10 +53,10 @@ UC03_answer()
 			"Mode=HTML", 
 			EXTRARES, 
 			LAST);
-		
-		lr_think_time(2);
 
 		lr_end_transaction("UC03_T02_inbox", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 
 		lr_start_transaction("UC03_T03_read_message");
 			
@@ -80,10 +80,10 @@ UC03_answer()
 			"Mode=HTML", 
 			EXTRARES, 
 			LAST);
-		
-		lr_think_time(2);
 
 		lr_end_transaction("UC03_T03_read_message", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 		
 		lr_start_transaction("UC03_T04_compose_message");
 			
@@ -113,10 +113,10 @@ UC03_answer()
 			"Snapshot=t519.inf", 
 			"Mode=HTML", 
 			LAST);
-		
-		lr_think_time(2);
 
 		lr_end_transaction("UC03_T04_compose_message", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 		
 		lr_start_transaction("UC03_T05_send_message");
 		

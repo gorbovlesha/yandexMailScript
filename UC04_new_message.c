@@ -35,7 +35,7 @@ UC04_new_message()
 		"Name=nohl", "Value=", ENDITEM, 
 		LAST);
 	
-	lr_think_time(2);
+	lr_think_time({ThinkTime});
 
 	lr_end_transaction("UC04_T01_compose_message", LR_AUTO);
 

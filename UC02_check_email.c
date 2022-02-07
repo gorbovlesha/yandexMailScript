@@ -7,7 +7,6 @@ int i = 0;
 	
 	lr_start_transaction("UC02_T01_redirect");
 
-	
 	web_reg_save_param_ex(
 		"ParamName=messageOrThreadIdCount", 
 		"LB/IC=<a href=\"\/lite\/",
@@ -29,15 +28,14 @@ int i = 0;
 		EXTRARES, 
 		LAST);
 	
-	lr_think_time(2);
-	
 	lr_end_transaction("UC02_T01_redirect", LR_AUTO);
+	
+	lr_think_time({ThinkTime});
 	
 	while (i < atoi(lr_eval_string("{messageOrThreadIdCount_count}"))) {
 		
 		lr_start_transaction("UC02_T02_inbox");
 
-		
 		web_reg_save_param_regexp(
 			"ParamName=messageId",
 			"RegExp=<a href=\"\/lite(\/message|\/thread)\/(\\d*?)\/new\" class=\"b-messages__message__link\" aria-label=\"Test1",
@@ -57,9 +55,9 @@ int i = 0;
 			EXTRARES, 
 			LAST);
 		
-		lr_think_time(2);
-		
 		lr_end_transaction("UC02_T02_inbox", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 
 		lr_start_transaction("UC02_T03_read_message");
 		
@@ -82,10 +80,10 @@ int i = 0;
 			"Mode=HTML", 
 			EXTRARES, 
 			LAST);
-		
-		lr_think_time(2);
 
 		lr_end_transaction("UC02_T03_read_message", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 		
 		lr_start_transaction("UC02_T04_inbox");
 
@@ -100,9 +98,9 @@ int i = 0;
 			EXTRARES, 
 			LAST);
 		
-		lr_think_time(2);
-		
 		lr_end_transaction("UC02_T04_inbox", LR_AUTO);
+		
+		lr_think_time({ThinkTime});
 
 		i = i + 1;
 	}

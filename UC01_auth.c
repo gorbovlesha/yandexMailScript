@@ -35,11 +35,11 @@ UC01_auth()
 		"Snapshot=t318.inf", 
 		"Mode=HTML", 
 		LAST);
-	
-	lr_think_time(2);
 
 	
 	lr_end_transaction("UC01_T01_open_auth_page", LR_AUTO);
+	
+	lr_think_time({ThinkTime});
 
 	web_add_header("X-Requested-With", 
 		"XMLHttpRequest");
@@ -70,10 +70,10 @@ UC01_auth()
 		"Name=retpath", "Value={PROTOCOL}://{HOST_MAIL_YANDEX}/", ENDITEM, 
 		"Name=origin", "Value=home_desktop_ru", ENDITEM, 
 		LAST);
-	
-	lr_think_time(2);
 
 	lr_end_transaction("UC01_T02_start_auth", LR_AUTO);
+	
+	lr_think_time({ThinkTime});
 	
 	lr_start_transaction("UC01_T03_commit_password");
 	
@@ -90,10 +90,10 @@ UC01_auth()
 		"Name=password", "Value={password}", ENDITEM, 
 		"Name=retpath", "Value={PROTOCOL}://{HOST_MAIL_YANDEX}/", ENDITEM, 
 		LAST);
-	
-	lr_think_time(2);
 
 	lr_end_transaction("UC01_T03_commit_password", LR_AUTO);
+	
+	lr_think_time({ThinkTime});
 	
 	lr_start_transaction("UC01_T04_redirect");
 
@@ -106,8 +106,6 @@ UC01_auth()
 		"Mode=HTML", 
 		EXTRARES, 
 		LAST);
-	
-	lr_think_time(2);
 
 	lr_end_transaction("UC01_T04_redirect", LR_AUTO);
 
