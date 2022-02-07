@@ -71,8 +71,8 @@ Order="UC01_auth__*delimiter*__UC01_T01_open_auth_page__*delimiter*__UC01_T02_st
 [StateManagement]
 LastReplayStatus=1
 [ActiveReplay]
-LastReplayedRunName=result1
-ActiveRunName=result1
+LastReplayedRunName=
+ActiveRunName=
 [Transactions]
 UC01_auth=
 UC01_T01_open_auth_page=
